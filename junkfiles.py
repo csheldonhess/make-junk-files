@@ -36,6 +36,17 @@ try:
 except IndexError:
     number = 10
 
+try:
+    number_of_files = int(number)
+    if number_of_files <= 0:
+        print "Negative number? Nice try. You're getting 10 files, then; deal with it."
+        number_of_files = 10
+except ValueError:
+    print "That wasn't a number. You're getting 10 files."
+    number_of_files = 10
+
+print number_of_files
+
 filename = "roboto.txt"
 
 fully_specified_file = os.path.join(directory, filename)
