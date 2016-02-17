@@ -50,8 +50,8 @@ except ValueError:
     print "That wasn't a number. You're getting 100 files."
     number_of_files = 100
 
-extensions = [".txt", ".csv", ""] 
-junky_stuff = ["-", "_", "+", "-", "_"]
+extensions = [".txt", ".csv"] 
+junky_stuff = ["-", "_", "+", "\ ", "-", "_"]
 words = ["programs", "events", "images", "speakers", "keynotes", "slides", "organizers", "locations", "misc"]
 years = range(2006, 2016)
 
@@ -59,10 +59,11 @@ years = range(2006, 2016)
 for filenumber in range(0, number_of_files):
     wi = filenumber % len(words)
     yi = filenumber % len(years)
+    c4l = random.choice(["code4lib", "Code4Lib", "CODE4LIB"])
     if filenumber % 2 == 0:
-        filename = "code4lib" + random.choice(junky_stuff) + words[wi] + random.choice(junky_stuff) + str(years[yi]) + random.choice(extensions)
+        filename = c4l + random.choice(junky_stuff) + words[wi] + random.choice(junky_stuff) + str(years[yi]) + random.choice(extensions)
     else:
-        filename = "code4lib" + random.choice(junky_stuff) + str(years[yi]) + random.choice(junky_stuff) + words[wi] + random.choice(extensions)
+        filename = c4l + random.choice(junky_stuff) + str(years[yi]) + random.choice(junky_stuff) + words[wi] + random.choice(extensions)
 
     fully_specified_file = os.path.join(directory, filename)
     os.system("touch " + fully_specified_file)
